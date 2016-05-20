@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E623D5A61CEDD31E00B1D62E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E623D5A51CEDD31E00B1D62E /* MapKit.framework */; };
+		E623D5A81CEDD5AF00B1D62E /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E623D5A71CEDD5AF00B1D62E /* DataFetcher.swift */; };
+		E623D5AA1CEDD6EA00B1D62E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E623D5A91CEDD6EA00B1D62E /* Alamofire.framework */; };
 		E6985C751CEDD151009C8589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6985C741CEDD151009C8589 /* AppDelegate.swift */; };
 		E6985C771CEDD151009C8589 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6985C761CEDD151009C8589 /* ViewController.swift */; };
 		E6985C7A1CEDD151009C8589 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6985C781CEDD151009C8589 /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E623D5A51CEDD31E00B1D62E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E623D5A71CEDD5AF00B1D62E /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		E623D5A91CEDD6EA00B1D62E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
 		E6985C711CEDD151009C8589 /* WeatherMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6985C741CEDD151009C8589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6985C761CEDD151009C8589 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E623D5A61CEDD31E00B1D62E /* MapKit.framework in Frameworks */,
+				E623D5AA1CEDD6EA00B1D62E /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +65,8 @@
 		E6985C681CEDD151009C8589 = {
 			isa = PBXGroup;
 			children = (
+				E623D5A91CEDD6EA00B1D62E /* Alamofire.framework */,
+				E623D5A51CEDD31E00B1D62E /* MapKit.framework */,
 				E6985C731CEDD151009C8589 /* WeatherMap */,
 				E6985C851CEDD151009C8589 /* WeatherMapTests */,
 				E6985C721CEDD151009C8589 /* Products */,
@@ -80,6 +90,7 @@
 				E6985C781CEDD151009C8589 /* Main.storyboard */,
 				E6985C7B1CEDD151009C8589 /* Assets.xcassets */,
 				E6985C7D1CEDD151009C8589 /* Info.plist */,
+				E623D5A71CEDD5AF00B1D62E /* DataFetcher.swift */,
 			);
 			path = WeatherMap;
 			sourceTree = "<group>";
@@ -103,6 +114,7 @@
 				E6985C6D1CEDD151009C8589 /* Sources */,
 				E6985C6E1CEDD151009C8589 /* Frameworks */,
 				E6985C6F1CEDD151009C8589 /* Resources */,
+				E623D5AC1CEDD74400B1D62E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -143,6 +155,12 @@
 				TargetAttributes = {
 					E6985C701CEDD151009C8589 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 28Q2ARQ9NB;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					E6985C811CEDD151009C8589 = {
 						CreatedOnToolsVersion = 7.3;
@@ -188,11 +206,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E623D5AC1CEDD74400B1D62E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/tvOS/Alamofire.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E6985C6D1CEDD151009C8589 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E623D5A81CEDD5AF00B1D62E /* DataFetcher.swift in Sources */,
 				E6985C771CEDD151009C8589 /* ViewController.swift in Sources */,
 				E6985C751CEDD151009C8589 /* AppDelegate.swift in Sources */,
 			);
@@ -316,10 +352,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = WeatherMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.studiowannabe.WeatherMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Debug;
 		};
@@ -328,10 +370,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = WeatherMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.studiowannabe.WeatherMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Release;
 		};
@@ -378,6 +426,7 @@
 				E6985C8D1CEDD151009C8589 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6985C8E1CEDD151009C8589 /* Build configuration list for PBXNativeTarget "WeatherMapTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +435,7 @@
 				E6985C901CEDD151009C8589 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

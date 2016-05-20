@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let manager = CLLocationManager()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        if CLLocationManager.authorizationStatus() == .NotDetermined {
+            manager.requestWhenInUseAuthorization()
+        }
+        if let location = manager.location {
+            
+        }
+        DataFetcher().requestData()
         return true
     }
 
